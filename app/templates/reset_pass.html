@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Reset Password
+{% endblock %}
+{% block body %}
+
+<div class="container my-3 w-50">
+    <div class="card mb-3 shadow my-3 p-3 mb-5 bg-body rounded">
+      <div class="card-body">
+    <form action="{{ url_for('reset_password') }}" method="post">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Please enter your email</label>
+    <div class="col-sm-5">
+      <input type="email" required class="form-control" id="inputEmail3" name ="email_id">
+    </div>
+    <button type="submit" class="my-submit-btn">Sign in</button>
+</form>
+{% with errormsg = get_flashed_messages() %}
+                    {% if errormsg %}
+
+                    <p style="color: red;">{{ errormsg[0] }}</p>
+
+                    {% endif %}
+                    {% endwith %}
+                    </div>
+</div>
+{% endblock %}

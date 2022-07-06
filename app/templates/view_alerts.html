@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% block title %}
+CompareIT
+{% endblock %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{{ url_for('static',filename = 'style.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<h3>Your Trackers</h3>
+
+<div class="container">
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+    <th>
+        #
+    </th>
+
+    <th>
+        Url
+    </th>
+    <th>
+        Target Price 
+    </th>
+    <th>
+        Status
+    </th>
+
+    <th>
+        Remove
+    </tr>
+</thead>
+<tbody>
+    {% for i in range(length) %}
+    <tr>
+        <td>{{i+1}}</td>
+        <td><a href = "{{url[i]}}">{{url[i]}}</a></td> 
+        <td>{{TargetPrice[i]}}</td>
+        <td>
+           {% if Status[i] == "Active" %} 
+            {{Status[i]}}
+            
+            {% else %}
+            
+            <form method="POST" action ="{{url_for('view_added_alerts')}}">
+                <input type = "hidden" value = "{{ url[i] }}" name="HiddenUrlActivate" >
+                <button type="submit" class="btn btn-link" style="padding: 0;" name = "activate_btn">Click Here to Activate</button>
+            </form>
+            
+            {% endif %} 
+
+            
+        </td>
+        <form method="POST" action ="{{url_for('view_added_alerts')}}">
+        <input type = "hidden" value = "{{ url[i] }}" name="HiddenUrl" >
+        <td>
+        <button type="submit" class="RemoveBtnStyle" name = "delete_btn">
+            <span class="material-icons-outlined">
+            delete
+            </span>
+        </button>
+        </td>
+        <td></td>
+        
+    </form>
+    </tr>
+    {% endfor %}
+</tbody>
+  </table>
+</div>
+{% endblock %}

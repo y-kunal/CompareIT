@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Price Drop Alert
+{% endblock %}
+
+{% block body %}
+<div class="card shadow p-3 mb-5 bg-body rounded container">
+    <div class="card-body">
+      <h5 class="card-title">Get Price Drop Alert</h5>
+      <p class="card-text">To get the url of the product go to the website where you want to track your product, search the desired product and copy the url from the url bar.<br>
+        *Only for Flipkart and Amazon </p>
+      
+      <form action="{{url_for('price_drop_alert')}}" method="post">
+        <div class="row mb-3">
+          <label for="inputurl" class="col-sm-2 col-form-label">Product Page Url</label>
+          <div class="col-sm-5">
+            <input type="text" required class="form-control" id="inputurl" name ="user_url">
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <label for="inputprice" class="col-sm-2 col-form-label">Target Price</label>
+            <div class="col-sm-5">
+              <input type="text" required class="form-control" id="inputprice" name ="target_price">
+            </div>
+          </div>
+          <button class ="btn btn-primary" type="submit">Add Alert</button>
+
+          <a href="{{ url_for('view_added_alerts') }}">View Added Alerts</a>
+
+        </form> 
+        {% with errormsg = get_flashed_messages() %}
+                      {% if errormsg %}
+  
+                      <p style="color: red;">{{ errormsg[0] }}</p>
+  
+                      {% endif %}
+                      {% endwith %}
+    </div>
+  </div>
+
+{% endblock %}

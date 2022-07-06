@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block style %}
+  
+
+{% endblock %}
+{% block body %}
+<!-- <div class="container my-3">
+    <form action="{{url_for('login')}}" method="POST">
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-5">
+          <input type="email" required class="form-control" id="inputEmail3" name ="login_username">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-5">
+          <input type="password" required class="form-control" id="inputPassword3" name = "login_password">
+        </div>
+      </div>
+      <div>
+        <input type="checkbox" id="show_password" name="showpassword" onclick="PasswordToggle('inputPassword3')">
+        <label for="show_password">Show Password</label>
+      </div>
+
+     <button type="submit" class="my-submit-btn">Sign in</button>
+     <a href="{{url_for('register')}}"><button type="button" class="my-submit-btn">Register</button></a>
+     <a href="{{url_for('reset_password') }}">Forgot Password</a>
+    </form>
+    {% with errormsg = get_flashed_messages() %}
+                    {% if errormsg %}
+
+                    <p style="color: red;">{{ errormsg[0] }}</p>
+
+                    {% endif %}
+                    {% endwith %}
+  </div>
+
+  <script src="{{url_for('static',filename='TogglePassword.js')}}">
+  </script> -->
+<div class="container-fluid w-75">
+<div class="card mb-3 shadow my-3 p-3 mb-5 bg-body rounded">
+  <div class="row g-0">
+      <form action="{{url_for('login')}}" method="POST">
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-5">
+            <input type="email" required class="form-control" id="inputEmail3" name ="login_username">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-5">
+            <input type="password" required class="form-control" id="inputPassword3" name = "login_password">
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="show_password" name="showpassword" onclick="PasswordToggle('inputPassword3')">
+          <label for="show_password">Show Password</label>
+        </div>
+  
+       <button type="submit" class="my-submit-btn">Sign in</button>
+       <a href="{{url_for('register')}}"><button type="button" class="my-submit-btn">Register</button></a>
+       <a href="{{url_for('reset_password') }}">Forgot Password</a>
+      </form>
+      {% with errormsg = get_flashed_messages() %}
+                      {% if errormsg %}
+  
+                      <p style="color: red;">{{ errormsg[0] }}</p>
+  
+                      {% endif %}
+                      {% endwith %}
+  
+    <script src="{{url_for('static',filename='TogglePassword.js')}}">
+    </script>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% block body %}
+
+{% if get_flashed_messages() %}
+
+<h1>{{ get_flashed_messages()[0] }}</h1>
+
+{% else %}
+<div class="compare_table">
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Specs</th>
+                <th>
+                    <img src="{{ device1_img }}" alt="Product 1">
+                </th>
+                <th>
+                    <img src="{{ device2_img }}" alt="Product 2">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in specs %}
+            {% if i not in ["SIM 1","Nano-SIM","GSM","Yes"] %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>{{ specs[i][0] }}</td>
+                <td>{{ specs[i][1] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Your Wishlist
+{% endblock %}
+
+{% block body %}
+
+ {% if get_flashed_messages() %}
+    <h1>{{ get_flashed_messages()[0] }}</h1>
+  {% else %}
+  <h1>Item added successfully</h1>
+  {% endif %}
+{% endblock %}

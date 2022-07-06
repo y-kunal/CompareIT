@@ -1,0 +1,132 @@
+{% extends 'base/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',filename = 'style.css') }}">
+<style>
+  .my_card-footer_css
+  {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fav_button
+  {
+    border: 0px;
+  }
+
+
+
+
+</style>
+{% endblock %}
+{% block body  %}
+
+  {% if not get_flashed_messages() %}
+    
+{% for i in range(0,10) %}
+<div class="container my-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{FlipSrc[i]}}" alt="..." class="product_img">
+        <div class="card-body">
+          <h5 class="card-title">{{FlipTitle[i]}}</h5>
+          <p class="card-text">{{FlipPrice[i]}}</p>
+        </div>
+        <div class="card-footer">
+          <div class = "my_card-footer_css">
+          <div>
+          <a href="{{FlipLink[i]}}" target="_blank"><button type="button" class="btn btn-primary">Go to
+              site</button></a>
+            </div>
+            <div>
+              <form action="{{ url_for('add_item') }}" target="_blank">
+                <input type="hidden" value="{{ FlipTitle[i] }}" name = "product_name">
+                <input type="hidden" value="{{ FlipPrice[i] }}" name = "price">
+                <input type="hidden" value="{{ FlipLink[i] }}" name= "site_link">
+                <input type="hidden" value="{{ FlipSrc[i] }}" name="image">
+
+                <button type="submit" class="fav_button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </button>
+            </form>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{PaytSrc[i]}}" alt="..." class="product_img">
+        <div class="card-body">
+          <h5 class="card-title">{{PaytTitle[i]}}</h5>
+          <p class="card-text">{{PaytPrice[i]}}</p>
+        </div>
+        <div class="card-footer">
+          <div class= "my_card-footer_css">
+            <div>
+          <a href="{{PaytLink[i]}}" target="_blank"><button type="button" class="btn btn-primary">Go to
+              site</button></a>
+              </div>
+              <div>
+                <form action="{{ url_for('add_item') }}" target="_blank">
+                  <input type="hidden" value="{{ PaytTitle[i] }}" name = "product_name">
+                  <input type="hidden" value="{{ PaytPrice[i] }}" name = "price">
+                  <input type="hidden" value="{{ PaytLink[i] }}" name= "site_link">
+                  <input type="hidden" value="{{ PaytSrc[i] }}" name="image">
+  
+                <button type="submit" class="fav_button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>
+              </button>
+              </form>
+              </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{ShopSrc[i]}}" alt="..." class="product_img">
+        <div class="card-body">
+          <h5 class="card-title">{{ShopTitle[i]}}</h5>
+          <p class="card-text">{{ShopPrice[i]}}</p>
+        </div>
+        <div class="card-footer">
+          <div class = "my_card-footer_css">
+            <div>
+          <a href="{{ShopLink[i]}}" target="_blank"><button type="button" class="btn btn-primary">Go to
+              site</button></a>
+              </div>
+              <div>
+                <form action="{{ url_for('add_item') }}" target="_blank">
+                  <input type="hidden" value="{{ ShopTitle[i] }}" name = "product_name">
+                  <input type="hidden" value="{{ ShopPrice[i] }}" name = "price">
+                  <input type="hidden" value="{{ ShopLink[i] }}" name= "site_link">
+                  <input type="hidden" value="{{ ShopSrc[i] }}" name="image">
+  
+                <button type="submit" class="fav_button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>
+              </button>
+              </form>
+              </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endfor %}
+
+{% else %}
+
+<h1>{{ get_flashed_messages()[0] }}</h1>
+
+{% endif %}
+{% endblock %}

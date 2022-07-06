@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% block css %}
+<!-- Give your css link here -->
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+
+{% endblock %}
+{% block body %}
+
+<div class="container w-100 my-2 shadow p-3 mb-5 bg-body rounded" >
+  <h3 style="text-align: center;">Compare Smartphone's</h3>
+  <div class="card mb-3">
+    <img src="/static/smartphone_card.jpg" id="myimg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <!-- <h5 class="card-title">Compare Laptop</h5> -->
+      <form action="{{url_for('compare_results')}}" method="GET">
+        <div class="my_card_body">
+          <div class="box1">
+            <img src="/static/svg_phone.svg" class="lp1" alt="...">
+            <input type="text" required type="text" name="textbox1" class="input_textbox" placeholder="Enter Name of Smartphone">
+          </div>
+          <div class="box2">
+            <img src="/static/svg_phone.svg" class="lp1" alt="...">
+            <input type="text" required type="text" name="textbox2" class="input_textbox" placeholder="Enter Name of Smartphone ">
+          </div>
+        </div>
+        <div class="container my-3" style="clear: both;text-align: center;">
+          <button type="submit" class="my-submit-btn" name="DeviceType" value="2">Compare</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container w-100 my-2 shadow p-3 mb-5 bg-body rounded">
+  <h3 style="text-align: center;">Compare Laptop's</h3>
+  <div class="card mb-3">
+    <img src="/static/pexels-pixabay-459653.jpg" id="myimg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <!-- <h5 class="card-title">Compare Laptop</h5> -->
+      <form action="{{url_for('compare_results')}}" method="GET">
+        <div class="my_card_body">
+          <div class="box1">
+            <img src="/static/MaxPixel.net-Computer-Seo-Search-Google-Laptop-Marketing-6064539.svg" class="lp1" alt="...">
+            <input type="text" required type="text" name="textbox1" class="input_textbox" placeholder="Enter Name of Laptop">
+          </div>
+          <div class="box2">
+            <img src="/static/MaxPixel.net-Computer-Seo-Search-Google-Laptop-Marketing-6064539.svg" class="lp1" alt="...">
+            <input type="text" required type="text" name="textbox2" class="input_textbox" placeholder="Enter Name of Laptop">
+          </div>
+        </div>
+        <div class="container my-3" style="clear: both;text-align: center;">
+          <button type="submit" class="my-submit-btn" name="DeviceType" value="1">Compare</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

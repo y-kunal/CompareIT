@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Price Drop Alert
+{% endblock %}
+
+{% block body %}
+
+{% with errormsg = get_flashed_messages() %}
+                    {% if errormsg %}
+
+                    <h1>{{ errormsg[0] }}</h1>
+
+                    {% endif %}
+                    {% endwith %}
+
+{% endblock %}

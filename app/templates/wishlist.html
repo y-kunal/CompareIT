@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% block title %} 
+    Your Wishlist
+{% endblock %}
+{% block body %}
+
+<h1 style="text-align: center;">Your Wishlist</h1>
+{% for i in range(Length) %}
+<div container my-3>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{Image_Src[i]}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body"> 
+          <h5 class="card-title">{{ Product_Name[i] }}</h5>
+          <p class="card-text">&#x20b9;{{ Product_Price[i] }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "container my-3">
+    <div class="float-start">
+    <a href="{{ Site_Link[i] }}" target="_blank" ><button type="button" class="btn btn-dark">Go to Site</button></a>
+    </div>
+
+    <div class="float-end">
+    <form action="{{url_for('my_wishlist')}}" method="POST">
+        <input type="hidden" value="{{Product_Name[i]}}" name = "product_name">
+        <button type="submit" class="RemoveBtnStyle"><span class="material-icons-outlined">
+          delete
+          </span>
+      </button>
+    </form>
+    </div>
+  </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

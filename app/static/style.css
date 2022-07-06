@@ -1,0 +1,125 @@
+
+.compare_table
+{
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}    
+
+#myimg
+{
+    height: 60vh;
+} 
+
+.product_img
+{
+
+    max-width:fit-content;
+
+}
+
+.box1
+    {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box2
+    {
+        float: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lp1
+    {
+        width: 300px;
+        height: 300px;
+    }
+
+    .input_textbox
+    {
+        border-radius: 8px;
+        width: 20vw;
+        padding-left: 12px;
+        justify-content: center;
+    }
+
+    @media only screen and (max-width: 768px)
+    {
+        .box1,.box2
+        {
+            float: none;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .lp1
+        {
+            width: 35vw;
+            height: auto;
+        }
+
+        #myimg
+        {
+            max-block-size: fit-content;
+
+        }
+
+        .input_textbox
+        {
+        width: 50vw;
+        }
+
+        .product_img
+        {
+            height: 50vh;
+        }
+
+
+    }
+
+    #my_nav
+    {
+        background-color: #503966;
+            
+    }
+
+    #my_header
+    {
+        background-color: #031424;
+    }
+
+    .my-submit-btn
+    {
+        background-color: #503966;
+        color: white;
+        margin-top: 50px;
+        height: 40px;
+        border-radius: 5px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    #my_login_img
+    {
+        width: 70vw;
+    }
+
+    .alerts_table
+    {
+        border: none;
+    }
+
+    .RemoveBtnStyle
+    {
+        border:none;
+        background-color: inherit;
+    }

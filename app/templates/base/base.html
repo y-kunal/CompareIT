@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+
+  {% block css %} {% endblock %}
+
+  <title>{% block title %} CompareIT {% endblock %}</title>
+</head>
+{% block style %}
+
+<style>
+
+/* body{
+  
+  background-color: #C2EDCE;
+} */
+
+</style>
+
+{% endblock %}
+
+<body>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+  <nav class="navbar navbar-expand-lg navbar-dark" id="my_nav">
+    <!-- <div class="my nav" style="box-shadow: 5px 10px 8px #888888;"> -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="\">
+        <h5>CompareIT</h5>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        </ul>
+        <form class="d-flex" action="{{url_for('search_results')}}" method="GET">
+          <input required class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            name="search_bar">
+        </form>
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="{{url_for('price_drop_alert')}}">
+            <h5>Price Drop Alert</h5>
+          </a>
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="{{url_for('register')}}">
+            <h5>Sign Up</h5>
+          </a>
+          {% if session['LoggedIn'] == True %}
+          <div style="display: flex; z-index: 1000000000">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Hii, {{ session['name'] }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{{ url_for('account_password_change') }}">Change Password</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('reset_password') }}">Reset Password</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('login') }}">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          {% else %}
+          <a class="nav-link active" href="{{url_for('login')}}">
+            <h5>Login</h5>
+          </a>
+          {% endif %}
+          <a href="{{ url_for('my_wishlist') }}" class="nav-link active">&#10084;</a>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </nav>
+  <hr size="3px" style="margin: 0;padding: 0;">
+  {% block body %}
+
+
+
+  {% endblock %}
+</body>
+
+</html>
